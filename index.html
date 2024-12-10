@@ -9,8 +9,6 @@
     <div class="container">
         <script>
             let name = prompt('Welcome to Bear Ninja Hunter! Please enter your name to get started:');
-            let message = alert(`Hi ${name} let's play!`);
-
             let choices = ['bear', 'ninja', 'hunter'];
             let playerChoice = prompt('Who are you: Bear, Ninja, or Hunter?').toLowerCase();
 
@@ -25,27 +23,28 @@
                 case 'bearbear':
                 case 'ninjaninja':
                 case 'hunterhunter':
-                    outcome = 1;
+                    outcome = 1; // Tie
                     break;
                 case 'bearhunter':
                 case 'ninjabear':
                 case 'hunterninja':
-                    outcome = 2;
+                    outcome = 2; // User win
                     break;
                 case 'bearninja':
                 case 'ninjahunter':
                 case 'hunterbear':
-                    outcome = 3;
+                    outcome = 3; // Computer win
                     break;
             }
 
+            let message = `Hi ${name} let's play!\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`;
 
             if (outcome === 1) {
-                message += `\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nIt's a tie!`;
+                message += "\nIt's a tie!";
             } else if (outcome === 2) {
-                message += `\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou win!`;
+                message += "\nYou win!";
             } else if (outcome === 3) {
-                message += `\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou lose!`;
+                message += "\nYou lose!";
             }
 
             document.write(`<div class="container">${message.replace(/\n/g, '<br>')}</div>`);
