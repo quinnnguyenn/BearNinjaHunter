@@ -2,22 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
     <title>Bear Ninja Hunter!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        //ask for a name
-        let name = prompt('Welcome to Bear Ninja Hunter! Please enter your name to get started:');
-        //welcomes the player 
-        let message = alert(`Hi ${name}, let's play!`);
+    <div class="container">
+        <script>
+            let name = prompt('Welcome to Bear Ninja Hunter! Please enter your name to get started:');
+            let message = `Hi ${name} let's play!`;
 
-        //asks the player for their choice
-        let playerChoice = prompt('Who are you: Bear, Ninja, or Hunter?');
+            let choices = ['bear', 'ninja', 'hunter'];
+            let playerChoice = prompt('Who are you: Bear, Ninja, or Hunter?').toLowerCase();
 
-        //log the outcomes
-        console.log(`${name}, you picked ${playerChoice}!`);
-        console.log('The computer picked Bear!');
-    </script>
+            while (!choices.includes(playerChoice)) {
+                playerChoice = prompt('Please enter a valid response: Bear, Ninja, or Hunter?').toLowerCase();
+            }
+
+            let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            let outcome;
+            switch (playerChoice + computerChoice) {
+                case 'bearbear':
+                case 'ninjaninja':
+                case 'hunterhunter':
+                    outcome = 1; // Tie
+                    break;
+                case 'bearhunter':
+                case 'ninjabear':
+                case 'hunterninja':
+                    outcome = 2; // User win
+                    break;
+                case 'bearninja':
+                case 'ninjahunter':
+                case 'hunterbear':
+                    outcome = 3; // Computer win
+                    break;
+            }
+
+            if (outcome === 1) {
+                message = `${name} you picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nIt's a tie!`;
+            } else if (outcome === 2) {
+                message = `${name} you picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
+            } else if (outcome === 3) {
+                message = `${name} you picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
+            }
+
+            document.write(`<div class="container">${message.replace(/\n/g, '<br>')}</div>`);
+        </script>
+    </div>
 </body>
 </html>
