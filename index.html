@@ -41,11 +41,11 @@
 
 
             if (outcome === 1) {
-                message = "It's a tie!";
+                message += `\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nIt's a tie!`;
             } else if (outcome === 2) {
-                message = "You win!";
+                message += `\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou win!`;
             } else if (outcome === 3) {
-                message = "You lose!";
+                message += `\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou lose!`;
             }
 
             document.write(`<div class="container">${message.replace(/\n/g, '<br>')}</div>`);
