@@ -10,5 +10,6 @@ body {
 
 .container {
     background-color: #F9EAE1;
+    padding: 20px;
     text-align: center;
 }
