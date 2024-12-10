@@ -39,16 +39,16 @@
                     break;
             }
 
+
             if (outcome === 1) {
-                message = `${name} you picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nIt's a tie!`;
+                message = "It's a tie!";
             } else if (outcome === 2) {
-                message = `${name} you picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
+                message = "You win!";
             } else if (outcome === 3) {
-                message = `${name} you picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!\nYou lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
+                message = "You lose!";
             }
 
             document.write(`<div class="container">${message.replace(/\n/g, '<br>')}</div>`);
-            
             console.log(message.replace(/\n/g, ' '));
         </script>
     </div>
