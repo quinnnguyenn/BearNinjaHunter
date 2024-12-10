@@ -1,5 +1,5 @@
 body {
-    background-color: #F9EAE1;
+    background-color: #AA998F;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -9,6 +9,6 @@ body {
 }
 
 .container {
-    background-color: #AA998F;
+    background-color: #F9EAE1;
     text-align: center;
 }
