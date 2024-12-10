@@ -9,6 +9,8 @@
     <div class="container">
         <script>
             let name = prompt('Welcome to Bear Ninja Hunter! Please enter your name to get started:');
+            alert(`Hi ${name} let's play!`);
+
             let choices = ['bear', 'ninja', 'hunter'];
             let playerChoice = prompt('Who are you: Bear, Ninja, or Hunter?').toLowerCase();
 
@@ -37,7 +39,7 @@
                     break;
             }
 
-            let message = `Hi ${name} let's play!\nYou picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`;
+            let message = `You picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`;
 
             if (outcome === 1) {
                 message += "\nIt's a tie!";
