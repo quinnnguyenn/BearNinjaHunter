@@ -7,39 +7,55 @@
 </head>
 <body>
     <div class="container">
-        <script>
-            let name = prompt('Welcome to Bear Ninja Hunter! Please enter your name to get started:');
-            alert(`Hi ${name} let's play!`);
+        <div class="result"></div>
+        <button onclick="playAgain()">Play Again</button>
+    </div>
+    <script>
+        function toForcedCase(input) {
+            return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+        }
 
-            let choices = ['bear', 'ninja', 'hunter'];
-            let playerChoice = prompt('Who are you: Bear, Ninja, or Hunter?').toLowerCase();
+        let name;
+        while (!name) {
+            name = prompt('Welcome to Bear Ninja Hunter! Please enter your name to get started:');
+            if (!name) {
+                alert('Please enter your name');
+            }
+        }
+        alert(`Hi ${name} let's play!`);
+
+        function playGame() {
+            let choices = ['Bear', 'Ninja', 'Hunter'];
+            let playerChoice = toForcedCase(prompt('Who are you: Bear, Ninja, or Hunter?'));
 
             while (!choices.includes(playerChoice)) {
-                playerChoice = prompt('Please enter a valid response: Bear, Ninja, or Hunter?').toLowerCase();
+                alert('Please enter a valid response');
+                playerChoice = toForcedCase(prompt('Who are you: Bear, Ninja, or Hunter?'));
             }
 
-            let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            let randomIndex = Math.floor(Math.random() * 3);
+            let computerChoice = choices[randomIndex];
 
             let outcome;
             switch (playerChoice + computerChoice) {
-                case 'bearbear':
-                case 'ninjaninja':
-                case 'hunterhunter':
+                case 'BearBear':
+                case 'NinjaNinja':
+                case 'HunterHunter':
                     outcome = 1;
                     break;
-                case 'bearhunter':
-                case 'ninjabear':
-                case 'hunterninja':
+                case 'BearHunter':
+                case 'NinjaBear':
+                case 'HunterNinja':
                     outcome = 2;
                     break;
-                case 'bearninja':
-                case 'ninjahunter':
-                case 'hunterbear':
+                case 'BearNinja':
+                case 'NinjaHunter':
+                case 'HunterBear':
                     outcome = 3;
                     break;
             }
 
-            let message = `You picked ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}!\nThe computer picked ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`;
+            let message = `${name} you picked ${playerChoice}!\nThe computer picked ${computerChoice}!`;
 
             if (outcome === 1) {
                 message += "\nIt's a tie!";
@@ -49,9 +65,29 @@
                 message += "\nYou lose!";
             }
 
-            document.write(`<div class="container">${message.replace(/\n/g, '<br>')}</div>`);
-            console.log(message.replace(/\n/g, ' '));
-        </script>
-    </div>
+            document.querySelector('.result').innerHTML = message.replace(/\n/g, '<br>');
+            for (let i = 3; i >= 0; i--) {
+                console.log(i);
+            }
+            console.log(`${name} you picked ${playerChoice}!`);
+            console.log(`The computer picked ${computerChoice}!`);
+            console.log(message.split('\n')[2]);
+        }
+
+        playGame();
+
+        function playAgain() {
+            let playAgainResponse;
+            while (!playAgainResponse || (playAgainResponse !== 'yes' && playAgainResponse !== 'no')) {
+                playAgainResponse = prompt('Do you want to play again? Enter "Yes" or "No"').toLowerCase();
+                if (playAgainResponse !== 'yes' && playAgainResponse !== 'no') {
+                    alert('Please enter "yes" or "no"');
+                }
+            }
+            if (playAgainResponse === 'yes') {
+                playGame();
+            }
+        }
+    </script>
 </body>
 </html>

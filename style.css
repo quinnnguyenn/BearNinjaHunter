@@ -14,3 +14,13 @@ body {
     padding: 20px;
     text-align: center;
 }
+
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #7D4F50;
+    color: #F9EAE1;
+    border-radius: 5px;
+    cursor: pointer;
+}
